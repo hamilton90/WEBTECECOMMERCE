@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <style>
+        #container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .item-container {
+            box-shadow: 0 1px 6px gray;
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"></div>
+<!-- Button trigger modal -->
+
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          ...
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+    <script>
+        var products = [
+            {
+                productName: 'Nike Pegasus',
+                productDetail: 'Womens Road Running Shoes',
+                productImage: 'images/nike_pegasus.png'
+            },
+            {
+                productName: 'Nike Alphafly 3 Electric',
+                productDetail: 'Womens Road Racing Shoes',
+                productImage: 'images/nike_alphafly_3.png'
+            },
+            {
+                productName: 'Nike Vaporfly 3',
+                productDetail: 'Mens Road Racing Shoes',
+                productImage: 'images/nike_vaporfly.png'
+            }
+        ]
+
+        var mainContainer = document.getElementById("container");
+
+        products.forEach(function(prod){
+            console.log(prod.productImage);
+            var itemContainer = document.createElement("div");
+            itemContainer.classList.add('item-container')
+
+            itemContainer.innerHTML = "<img src='" +prod.productImage+ "'>" +
+            "<h4>" + prod.productName +" </h4> <p> " +prod.productDetail+"</p> " +
+            "<button type='button' class='btn btn-primary' data-bs-toggle='modal' data-bs-target='#exampleModal'>Add to cart</button>";
+
+            mainContainer.appendChild(itemContainer);
+        })
+    </script>
+</body>
+</html>
